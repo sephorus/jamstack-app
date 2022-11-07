@@ -10,7 +10,7 @@ import products from '@data/products';
 
 import styles from '@styles/Page.module.scss';
 
-import { CldImage } from 'next-cloudinary';
+import { CldImage, CldOgImage } from 'next-cloudinary';
 
 const FEATURED_PRODUCTS = [
   'cosmo-hat-model',

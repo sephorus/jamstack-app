@@ -10,6 +10,8 @@ import products from '@data/products';
 
 import styles from '@styles/Product.module.scss'
 
+import { CldOgImage } from 'next-cloudinary';
+
 export default function Product({ product, ogImage }) {
   return (
     <Layout>
@@ -19,6 +21,54 @@ export default function Product({ product, ogImage }) {
         <meta property="og:description" content={`${product.name} on Space Jelly gear!`} />
         <meta property="og:type" content="article" />
       </Head>
+
+      <CldOgImage
+        src="https://user-images.githubusercontent.com/1045274/199742477-3a683f54-915b-463d-95a2-8ac584db7240.png"
+        deliveryType="fetch"
+        twitterTitle={`${product.name} - Space Jelly Gear`}
+        overlays={[
+          {
+            url: product.image,
+            crop: 'fill',
+            width: 1200,
+            height: 1200,
+            position: {
+              gravity: 'west'
+            }
+          },
+          {
+            text: {
+              text: product.name,
+              fontFamily: 'Source Sans Pro',
+              fontSize: 96,
+              fontWeight: 'bold'
+            },
+            crop: 'fit',
+            width: 920,
+            position: {
+              gravity: 'north_west',
+              x: 1340,
+              y: 140
+            }
+          },
+          {
+            text: {
+              text: 'Only on Space Jelly Gear!',
+              color: 'rgb:24292F',
+              fontFamily: 'Source Sans Pro',
+              fontSize: 48,
+              fontWeight: 'bold'
+            },
+            crop: 'fit',
+            width: 920,
+            position: {
+              gravity: 'north_west',
+              x: 1340,
+              y: 250
+            }
+          }    
+        ]}
+      />
 
       <Container>
         <div className={styles.productWrapper}>
