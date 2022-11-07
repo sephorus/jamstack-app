@@ -10,6 +10,8 @@ import products from '@data/products';
 
 import styles from '@styles/Page.module.scss';
 
+import { CldImage } from 'next-cloudinary';
+
 const FEATURED_PRODUCTS = [
   'cosmo-hat-model',
   'cosmo-hat',
@@ -34,7 +36,9 @@ export default function Home() {
               <h2>Prepare for liftoff.</h2>
               <p>Apparel that&apos;s out of this world!</p>
             </div>
-            <Image
+            <CldImage
+              sizes="100w"
+              deliveryType="fetch"
               className={styles.heroImage}
               width="1200"
               height="400"
@@ -48,15 +52,58 @@ export default function Home() {
 
         <ul className={styles.products}>
           {products.slice(0, 4).map(product => {
+            const overlays = [];
+
+            if ( product.sale > 0 ) {
+              overlays.push({
+                url: 'https://user-images.githubusercontent.com/1045274/199878003-6b54e65f-7d23-413d-a48d-5c88d74652e3.png',
+                width: 400,
+                height: 400,
+                position: {
+                  gravity: 'north_east',
+                  x: 50,
+                  y: 50,
+                  angle: 15
+                }
+              });
+
+              overlays.push({
+                width: 350,
+                crop: 'fit',
+                position: {
+                  gravity: 'north_east',
+                  x: 120,
+                  y: 180,
+                  angle: 15
+                },
+                text: {
+                  color: 'white',
+                  fontFamily: 'Source Sans Pro',
+                  fontSize: 140,
+                  fontWeight: 'bold',
+                  text: `${product.sale * 100}%`,
+                  alignment: 'center'
+                }
+              });
+            }
+
             return (
               <li key={product.id}>
                 <Link href={`/products/${product.id}`}>
                   <div className={styles.productImage}>
-                    <Image
-                      width={product.width}
-                      height={product.height}
+                    <CldImage
+                      sizes="(min-width: 480px ) 50vw,
+                      (min-width: 728px) 33vw,
+                      (min-width: 976px) 25vw,
+                      100vw"
+                      deliveryType="fetch"
+                      width="600"
+                      height="600"
+                      crop="fill"
                       src={product.image}
                       alt=""
+
+                      overlays={overlays}
                     />
                   </div>
                   <h3 className={styles.productTitle}>

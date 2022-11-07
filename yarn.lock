@@ -17,6 +17,20 @@
   dependencies:
     "regenerator-runtime" "^0.13.10"
 
+"@cloudinary/transformation-builder-sdk@^1.0.0":
+  "integrity" "sha512-BqhTqIwPTyQ4hE0NjKXf/bF7VAjwe2ZHNuypdG6oQ6bDoiLTOSzdAZsg0jFndureQiVPavBKOzQTjHImp45z/g=="
+  "resolved" "https://registry.npmjs.org/@cloudinary/transformation-builder-sdk/-/transformation-builder-sdk-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "@cloudinary/url-gen" "^1.7.0"
+
+"@cloudinary/url-gen@^1.7.0", "@cloudinary/url-gen@^1.8.6":
+  "integrity" "sha512-BZUHOns1+ECmZTGlcWWZ1mM7Fu5TsSWqbknGCVtmhgX2g82kwZa3W3LhICMu/xyPjuQmz8ykjXHAkRw5kRZf+w=="
+  "resolved" "https://registry.npmjs.org/@cloudinary/url-gen/-/url-gen-1.8.6.tgz"
+  "version" "1.8.6"
+  dependencies:
+    "@cloudinary/transformation-builder-sdk" "^1.0.0"
+
 "@eslint/eslintrc@^1.3.3":
   "integrity" "sha512-uj3pT6Mg+3t39fvLrj8iuCIJ38zKO9FpGtJ4BBJebJhEwjoT+KLVNCcHT5QC9NGRIEi7fZ0ZR8YRb884auB4Lg=="
   "resolved" "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.3.3.tgz"
@@ -1193,7 +1207,14 @@
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
-"next@13.0.1":
+"next-cloudinary@^0.8.0":
+  "integrity" "sha512-CkuwLF/E34WJ4ALjDyYQrQ6ZqXjuZ76Re8/y30HnHA2e9fMvFM0P7zMzzr64/s9N0pMwa7zGjSc36PKjFMEeZQ=="
+  "resolved" "https://registry.npmjs.org/next-cloudinary/-/next-cloudinary-0.8.0.tgz"
+  "version" "0.8.0"
+  dependencies:
+    "@cloudinary/url-gen" "^1.8.6"
+
+"next@^12.0.0 || ^13.0.0", "next@13.0.1":
   "integrity" "sha512-ErCNBPIeZMKFn6hX+ZBSlqZVgJIeitEqhGTuQUNmYXJ07/A71DZ7AJI8eyHYUdBb686LUpV1/oBdTq9RpzRVPg=="
   "resolved" "https://registry.npmjs.org/next/-/next-13.0.1.tgz"
   "version" "13.0.1"
